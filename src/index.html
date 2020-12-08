@@ -16,7 +16,23 @@
     <article>
       <h2>Select Site to Clear Cache</h2>
       <p>
-        The following page will give you a response from cloudflare. If you see <code>success: true</code> in any part of the response then it has been successful. If not, then tell Harry about the bug!</p>
+        The following page will give you a response from cloudflare. If you see the following code that includes <code>success: true</code> then you know it has been successful.
+        <p>
+          <code>
+          {
+            data: {
+              result: {
+                id: "b7a2e1d989c1dc2b266ca3039c1b1684"
+              },
+              success: true,
+              errors: [ ],
+              messages: [ ]
+            }
+          }
+        </code> 
+        </p>
+          
+        
      
         <form action="/.netlify/functions/hello_name">
         <select id="cars" name="name">
