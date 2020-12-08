@@ -22,21 +22,20 @@ exports.handler = async (event, context) => {
   async function makePostRequest() {
 
     let apiUrl = JSON.stringify(baseUrl + zoneID + "/purge_cache");
-    
+
     console.log(apiUrl);
 
     let postdata = JSON.stringify({"purge_everything":true});
 
     let config = {
       method: 'post',
-      url: apiUrl,
       headers: {
         'Content-Type': 'application/json', 
         'Authorization': 'Bearer ' + 'HHC_HSZZXogvmnzo0dm5D3-pYJzZBfUUmsmiZtlw'
       },
       data : postdata,
       }
-    let res = await axios.post(config)
+    let res = await axios.post(apiUrl, config)
     .then(function (response) {
       console.log(JSON.stringify(response.data));
     })
