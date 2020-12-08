@@ -91,6 +91,11 @@ input {
   font-weight: bold;
 }
 
+select {
+  padding: 10px 56px;
+  margin-top: 20px;
+}
+
 button,
 .button {
   box-sizing: border-box;
