@@ -1,4 +1,6 @@
 import fetch from "node-fetch";
+const { CLOUDFLARE_BEARER_TOKEN } = process.env;
+
 
 exports.handler = async (event, context) => {
 
@@ -20,7 +22,7 @@ exports.handler = async (event, context) => {
 
   let postdata = JSON.stringify({"purge_everything":true});
 
-  return fetch('https://api.cloudflare.com/client/v4/zones/' + zoneID + '/purge_cache', { method: 'post',  body: postdata, headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + 'HHC_HSZZXogvmnzo0dm5D3-pYJzZBfUUmsmiZtlw'}})
+  return fetch('https://api.cloudflare.com/client/v4/zones/' + zoneID + '/purge_cache', { method: 'post',  body: postdata, headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + CLOUDFLARE_BEARER_TOKEN }})
   .then(response => response.json())
   .then(data => ({
     statusCode: 200,
