@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
 
   const site = event.queryStringParameters.name || "NA";
 
-  const zoneID = "";
+  let zoneID = "";
 
   switch(site) {
     case "northcote":
@@ -20,7 +20,7 @@ exports.handler = async (event, context) => {
   }
 
   async function makePostRequest() {
-    
+
     let apiUrl = baseUrl + zoneID + "/purge_cache";
     let postdata = JSON.stringify({"purge_everything":true});
 
