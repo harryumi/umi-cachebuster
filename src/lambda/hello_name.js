@@ -1,4 +1,4 @@
-const axios = require("axios");
+import fetch from "node-fetch";
 
 exports.handler = async (event, context) => {
 
@@ -18,39 +18,16 @@ exports.handler = async (event, context) => {
     default:
       // code block
   }
+  let apiUrl = JSON.stringify(baseUrl + zoneID + "/purge_cache");
+  
+  let postdata = JSON.stringify({"purge_everything":true});
 
-  async function makePostRequest() {
-
-    let apiUrl = JSON.stringify(baseUrl + zoneID + "/purge_cache");
-
-
-    let postdata = JSON.stringify({"purge_everything":true});
-
-    let config = {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json', 
-        'Authorization': 'Bearer ' + 'HHC_HSZZXogvmnzo0dm5D3-pYJzZBfUUmsmiZtlw'
-      },
-      data : postdata,
-      }
-    let res = await axios.post(apiUrl, config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-      return {
-        statusCode: 200,
-        body: `Success, ${site} was cleared. ${response.data}`
-      };
-    })
-    .catch(function (error) {
-      return {
-        statusCode: 400,
-        body: `Error, ${site} was not cleared. ${response.data}`
-      };
-    });
-    
-};
-
-makePostRequest();
+  return fetch(apiUrl, { method: 'post',  body: postdata, headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + 'HHC_HSZZXogvmnzo0dm5D3-pYJzZBfUUmsmiZtlw'}})
+  .then(response => response.json())
+  .then(data => ({
+    statusCode: 200,
+    body: data
+  }))
+  .catch(error => ({ statusCode: 422, body: String(error) }));
 
 };
