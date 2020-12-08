@@ -21,7 +21,10 @@ exports.handler = async (event, context) => {
 
   async function makePostRequest() {
 
-    let apiUrl = baseUrl + zoneID + "/purge_cache";
+    let apiUrl = JSON.stringify(baseUrl + zoneID + "/purge_cache");
+    
+    console.log(apiUrl);
+
     let postdata = JSON.stringify({"purge_everything":true});
 
     let config = {
@@ -33,7 +36,6 @@ exports.handler = async (event, context) => {
       },
       data : postdata,
       }
-
     let res = await axios.post(config)
     .then(function (response) {
       console.log(JSON.stringify(response.data));
