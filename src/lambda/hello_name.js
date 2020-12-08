@@ -2,7 +2,6 @@ import fetch from "node-fetch";
 
 exports.handler = async (event, context) => {
 
-  const baseUrl = "https://api.cloudflare.com/client/v4/zones/"
 
   const site = event.queryStringParameters.name || "NA";
 
@@ -18,11 +17,10 @@ exports.handler = async (event, context) => {
     default:
       // code block
   }
-  let apiUrl = JSON.stringify(baseUrl + zoneID + "/purge_cache");
 
   let postdata = JSON.stringify({"purge_everything":true});
 
-  return fetch("https://api.cloudflare.com/client/v4/zones/b1cc84bd7497f767f5c9d0de7d8ed4c0/purge_cache", { method: 'post',  body: postdata, headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + 'HHC_HSZZXogvmnzo0dm5D3-pYJzZBfUUmsmiZtlw'}})
+  return fetch('https://api.cloudflare.com/client/v4/zones/' + zoneID + '/purge_cache', { method: 'post',  body: postdata, headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + 'HHC_HSZZXogvmnzo0dm5D3-pYJzZBfUUmsmiZtlw'}})
   .then(response => response.json())
   .then(data => ({
     statusCode: 200,
