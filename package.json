@@ -1,7 +1,7 @@
 {
-  "name": "netlify-functions-example",
+  "name": "umi-cloudflare-cache-buster",
   "version": "0.1.0",
-  "description": "Irene’s playground for learning how to use Netlify Lambda Functions",
+  "description": "An area for the team to clear clouflare cache.",
   "private": true,
   "scripts": {
     "docs": "node generate-readme.js",

@@ -1,32 +1,29 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Netlify Functions Examples</title>
+    <title>Cloudflare Cache Buster | Umi Digital</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500|Roboto+Mono" rel="stylesheet">
     <link href="/normalize.css" rel="stylesheet">
     <link href="/styles.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Netlify Functions Examples</h1>
+    <h1>Umi Cloudflare Cache Buster</h1>
     <p>
-      Hi there! This is a playground to test out
-      <a href="https://www.netlify.com/docs/functions">Netlify’s Lambda Functions</a>.
+      Hi there! This is a simple tool to clear the cache on any cloudflare site on the Umi network. If you would like any other sites added to this, then please do not hesitate to put it in the development channel on slack.
     </p>
 
     <article>
       <h2>Select Site to Clear Cache</h2>
       <p>
-        Customize the greeting calling the Lambda endpoint with an optional.</p>
+        The following page will give you a response from cloudflare. If you see <code>success: true</code> in any part of the response then it has been successful. If not, then tell Harry about the bug!</p>
      
         <form action="/.netlify/functions/hello_name">
         <select id="cars" name="name">
           <option value="northcote">Northcote</option>
           <option value="umi">Umi Digital</option>
           <option value="haycock">Haycock Manor</option>
-          <option value="farnham">Farnham Castle</option>
-
-
-
+          <option value="hma">The HMA</option>
+          <option value="umiversity">Umiversity</option>
         </select>
 
         <p><button type="submit">Clear Cache</button></p>

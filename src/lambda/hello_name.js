@@ -14,7 +14,16 @@ exports.handler = async (event, context) => {
       zoneID = "b1cc84bd7497f767f5c9d0de7d8ed4c0";
       break;
     case "umi":
-      // code block
+      zoneID = "b7a2e1d989c1dc2b266ca3039c1b1684";
+      break;
+    case "haycock":
+      zoneID = "0b8dd7c0ff39fed069fa753cde035e9f";
+      break;
+    case "umiversity":
+      zoneID = "e9d5abb70fabd131b6e2bed6d5d86a2f";
+      break;
+    case "hma":
+      zoneID = "7063c0025728523761b2f6a1eda7d9a7";
       break;
     default:
       // code block
