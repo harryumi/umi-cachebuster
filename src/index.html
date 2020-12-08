@@ -12,30 +12,20 @@
       Hi there! This is a playground to test out
       <a href="https://www.netlify.com/docs/functions">Netlify’s Lambda Functions</a>.
     </p>
-    <p>
-      You can browse the code for this site on
-      <a href="https://github.com/imorente/netlify-functions-example">GitHub</a>,
-      or play around with the code yourself
-      <a href="https://app.netlify.com/start/deploy?repository=https://github.com/imorente/netlify-functions-example">
-      deploying a copy to Netlify</a>.
-    </p>
+
     <article>
       <h2>Select Site to Clear Cache</h2>
       <p>
-        Customize the greeting calling the Lambda endpoint with an optional
-        <code>name</code> parameter.
-      </p>
-      <pre class="language-js"><code><%= require('html-loader!./lambda/hello_name.js') %></code></pre>
-      <h3>Try it out</h3>
-      <form action="/.netlify/functions/hello_name">
-
+        Customize the greeting calling the Lambda endpoint with an optional.</p>
+     
+        <form action="/.netlify/functions/hello_name">
         <select id="cars" name="name">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="fiat">Fiat</option>
-          <option value="audi">Audi</option>
+          <option value="northcote">Northcote</option>
+
         </select>
-        <p><button type="submit">Say hello!</button></p>
+
+        <p><button type="submit">Clear Cache</button></p>
+
       </form>
     </article>
 
