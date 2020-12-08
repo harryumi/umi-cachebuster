@@ -23,7 +23,6 @@ exports.handler = async (event, context) => {
 
     let apiUrl = JSON.stringify(baseUrl + zoneID + "/purge_cache");
 
-    console.log(apiUrl);
 
     let postdata = JSON.stringify({"purge_everything":true});
 
@@ -38,17 +37,20 @@ exports.handler = async (event, context) => {
     let res = await axios.post(apiUrl, config)
     .then(function (response) {
       console.log(JSON.stringify(response.data));
+      return {
+        statusCode: 200,
+        body: `Success, ${site} was cleared. ${response.data}`
+      };
     })
     .catch(function (error) {
-      console.log(error);
+      return {
+        statusCode: 400,
+        body: `Error, ${site} was not cleared. ${response.data}`
+      };
     });
+    
 };
 
 makePostRequest();
-
-  return {
-    statusCode: 200,
-    body: `Success, ${site} was cleared.`
-  };
 
 };
